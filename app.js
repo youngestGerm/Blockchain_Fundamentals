@@ -37,16 +37,17 @@ class ApplicationServer {
 
 	initExpressMiddleWare() {
 		this.app.use(morgan("dev"));
+		// These allow us to parse any JSON body data that is received from the URL
 		this.app.use(bodyParser.urlencoded({extended:true}));
 		this.app.use(bodyParser.json());
 
 		// Remember that this javascript is not meant to load anything onto a website. 
 		// This code is solely backend code, nothing related to how to create a fancy design css etc.
 
-		this.app.get('/', (req, res) => {
-			res.write("Does it work?")
-			res.end()
-		})
+		// this.app.get('/', (req, res) => {
+		// 	res.write("Page works")
+		// 	res.end()
+		// })
 	}
 
 	initControllers() {
